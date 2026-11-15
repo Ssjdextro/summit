@@ -30,6 +30,8 @@ This repository includes a GitHub Actions workflow that publishes the `public/` 
 3. In the GitHub repository, open **Settings → Pages** and set the build and deployment source to **GitHub Actions**.
 4. Open the **Actions** tab and wait for **Deploy static site to GitHub Pages** to finish. GitHub will show the site URL in the workflow run and Pages settings.
 
+For this repository, the expected project site address is <https://ssjdextro.github.io/summit/>. It becomes available after a deployment run succeeds.
+
 Pages hosting runs the browser-only version: route search works, and data-desk changes are saved in that visitor's browser only. It does not run `server.js`, provide the JSON API, or save visitor edits back into the GitHub repository. For a public service with shared, persistent edits, use a Node host plus a persistent database and protect the editing endpoints before making the data desk public. Do not deploy the current file-writing data desk as an open public API.
 
 For Maps on Pages, configure the restricted browser key in `public/maps-config.js` before pushing. Since that file is public, never place an unrestricted key or other secret there.
