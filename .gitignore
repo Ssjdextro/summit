@@ -1,0 +1,23 @@
+# Node and local tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example
+
+# Editor and OS state
+.vscode/*.local.json
+*.swp
+*.swo
+
+# Test, coverage, and build output
+coverage/
+dist/
+build/
+

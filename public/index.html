@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f5ef" />
+  <meta name="description" content="A simpler way to find your next bus in Coimbatore. Search the supplied route directory and plan around known route endpoints." />
+  <title>Kovai Connect — Every ride, a little easier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="announcement"><span class="live-dot"></span> MADE FOR KOVAI, BUILT FOR EVERYONE <span class="announce-right">A community-first mobility project <span>↗</span></span></div>
+  <header class="nav wrap">
+    <a class="brand" href="#home" aria-label="Kovai Connect home"><span class="brand-mark"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M6 25.5 16.9 7l4.3 7.3L25 7l8 18.5H6Z"/><path d="M10.5 25.5c2.1-4 4.3-6 7.2-6 3.9 0 4.6 4.1 8.4 4.1 1.5 0 2.7-.5 4-1.6"/></svg></span><span>KOVAI<span class="brand-light">CONNECT</span></span></a>
+    <nav class="nav-links"><a class="active" href="#plan">Plan a ride</a><a href="#routes">Routes</a><a href="#why">Our impact</a></nav>
+    <button class="nav-admin" id="adminOpen">Data desk <span>↗</span></button>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap" id="plan">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR CITY, IN MOTION <span class="tamil">கோவை</span></div>
+        <h1>Good journeys<br/>start <span>with knowing.</span></h1>
+        <p class="hero-sub">Find the right bus across Coimbatore. Clear routes, familiar stops, and a simpler way to get where you’re going.</p>
+        <div class="hero-meta"><div class="avatar-stack"><b>க</b><b>கோ</b><b>+</b></div><span>Made for the people<br/>who make Kovai move</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustrated Coimbatore bus route map">
+        <div class="art-topline"><span>ILLUSTRATIVE NETWORK VIEW</span><span class="art-status"><i></i> THE CITY IS CONNECTED</span></div>
+        <svg class="route-map" viewBox="0 0 620 460" role="img" aria-label="Conceptual Coimbatore bus network graphic. Not to scale and not based on stop coordinates.">
+          <path class="map-street" d="M-20 90 200 118 398 60 660 112M-20 155 174 180 340 139 660 198M-20 234 130 206 300 254 460 218 660 280M-20 328 177 302 328 352 500 312 660 370M96-20 125 115 94 270 148 480M232-20 210 140 251 274 225 480M382-20 354 120 395 256 355 480M520-20 482 134 524 282 494 480"/>
+          <path class="map-road" d="M56 378 150 296 205 174 352 133 481 154 557 229M75 79 208 174 251 274 394 260 482 154M205 174 355 132 420 54M251 274 350 351 484 312"/>
+          <path class="map-route route-a" d="M56 378 150 296 205 174 352 133 481 154 557 229"/><path class="map-route route-b" d="M75 79 208 174 251 274 394 260 482 154"/>
+          <g class="map-label"><circle cx="56" cy="378" r="7"/><text x="27" y="405">PERUR</text></g><g class="map-label"><circle cx="205" cy="174" r="7"/><text x="164" y="151">TOWN HALL</text></g><g class="map-label"><circle cx="352" cy="133" r="7"/><text x="322" y="109">GANDHIPURAM</text></g><g class="map-label"><circle cx="481" cy="154" r="7"/><text x="464" y="130">PEELAMEDU</text></g><g class="map-label"><circle cx="557" cy="229" r="8"/><text x="518" y="257">AIRPORT</text></g><g class="map-label"><circle cx="75" cy="79" r="7"/><text x="37" y="58">MARUTHAMALAI</text></g><g class="map-label"><circle cx="394" cy="260" r="7"/><text x="372" y="288">UKKADAM</text></g>
+          <circle class="map-pulse" cx="352" cy="133" r="16"/>
+        </svg>
+        <div class="art-caption"><span>CONCEPT NETWORK · NOT TO SCALE</span><span>↗ COIMBATORE, TAMIL NADU</span></div>
+        <div class="art-sticker"><span>நகரம்<br/>நம் பயணம்</span><b>✳</b></div>
+      </div>
+    </section>
+
+    <section class="planner wrap" aria-labelledby="planner-title">
+      <div class="planner-heading"><div><span class="section-kicker">01 / THE JOURNEY FINDER</span><h2 id="planner-title">Where are you headed?</h2></div><span class="tiny-note">PICK YOUR STOPS <span>↓</span></span></div>
+      <form id="plannerForm" class="planner-form">
+        <label class="select-field"><span class="field-icon origin-icon">●</span><span class="field-label">BOARDING POINT</span><input id="fromStop" list="fromStopOptions" autocomplete="off" placeholder="Stop, landmark, or address" required aria-label="Boarding point" /></label>
+        <button type="button" id="swapStops" class="swap-btn" aria-label="Swap starting point and destination">⇄</button>
+        <label class="select-field"><span class="field-icon destination-icon">◆</span><span class="field-label">DROPPING POINT</span><input id="toStop" list="toStopOptions" autocomplete="off" placeholder="Stop, landmark, or address" required aria-label="Dropping point" /></label>
+        <button class="find-btn" type="submit"><span>Find my bus</span><span class="btn-arrow">↗</span></button>
+      </form>
+      <datalist id="fromStopOptions"></datalist><datalist id="toStopOptions"></datalist>
+      <div class="planner-bottom"><span><span class="info-dot">i</span> Choose a boarding point to filter destinations with a known route (up to two changes), or type any address to check in Google Maps.</span><button type="button" id="useLocation" class="text-btn">Use my location <span>⌖</span></button></div>
+    </section>
+
+    <section id="resultsSection" class="results-section wrap hidden" aria-live="polite">
+      <div class="results-heading"><div><span class="section-kicker">YOUR ROUTE OPTIONS</span><h2 id="resultsTitle">Here’s how to get there.</h2></div><button class="clear-results" id="clearResults">Clear ×</button></div>
+      <div id="resultsList" class="results-list"></div>
+    </section>
+
+    <section class="routes-section" id="routes">
+      <div class="wrap routes-wrap"><div class="section-header"><div><span class="section-kicker">02 / KNOW YOUR CITY</span><h2>Popular ways<br/>through Kovai.</h2></div><div class="routes-intro"><p>Start with a familiar corridor. Every route card shows the origin and destination listed in your directory.</p><a class="arrow-link" href="#allRoutes">Explore all routes <span>↘</span></a></div></div>
+        <div class="route-grid" id="featuredRoutes"></div>
+        <div class="all-routes-head" id="allRoutes"><span class="section-kicker">THE ROUTE DIRECTORY</span><div class="directory-tools"><label class="search-routes"><span>⌕</span><input id="routeSearch" type="search" placeholder="Search stops or route number" /></label><span class="directory-count" id="directoryCount"></span></div></div>
+        <div class="directory" id="routeDirectory"></div>
+        <div class="data-note"><span class="info-dot">i</span><span>Sources: your supplied route PDF and the <a href="https://ccmc.gov.in/index.php/createpage/bus-services" target="_blank" rel="noopener noreferrer">Coimbatore City Municipal Corporation route directory</a>. Route variants and unclear spellings are cross-checked against the <a href="https://coimbatorejunction.in/coimbatore-bus-routes/" target="_blank" rel="noopener noreferrer">Coimbatore Junction guide</a>; Route 111 landmark stops come from its <a href="https://coimbatorejunction.in/111-bus-timings/" target="_blank" rel="noopener noreferrer">route-specific guide</a>. Published lists mostly provide route endpoints, and no reliable town-bus timetable is available here. Confirm loop direction and service details with the conductor.</span></div>
+      </div>
+    </section>
+
+    <section class="impact-section" id="why"><div class="wrap impact-wrap"><div class="impact-top"><div><span class="section-kicker">03 / WHY THIS MATTERS</span><h2>A better bus ride<br/>changes a lot.</h2></div><div class="impact-aside"><span class="impact-symbol">✳</span><p>When getting around is easier to understand, more of the city can move with confidence.</p></div></div>
+      <div class="impact-grid"><article class="impact-card impact-feature"><span class="impact-num">01</span><div class="impact-illustration people-ill"><span>●</span><span>●</span><span>●</span><i>↗</i></div><h3>Less guessing.<br/>More getting there.</h3><p>One clear place to understand routes, stops and service windows—especially useful when you’re new to a neighbourhood.</p><span class="impact-tag">ACCESS TO OPPORTUNITY</span></article><article class="impact-card"><span class="impact-num">02</span><div class="impact-illustration leaf-ill">↗</div><h3>Public transport<br/>made approachable.</h3><p>Better route confidence can make shared mobility a more comfortable everyday choice.</p><span class="impact-tag">LOWER-CARBON TRAVEL</span></article><article class="impact-card"><span class="impact-num">03</span><div class="impact-illustration signal-ill"><span></span><span></span><span></span></div><h3>Useful for<br/>every kind of rider.</h3><p>A foundation for multilingual help, accessible trip planning and community-reported changes.</p><span class="impact-tag">INCLUSIVE BY DESIGN</span></article></div>
+    </div></section>
+
+    <section class="future-section"><div class="wrap future-wrap"><div class="future-copy"><span class="section-kicker">04 / WHERE WE CAN GO NEXT</span><h2>From a helpful guide<br/>to a <em>living city layer.</em></h2><p>This first step makes route knowledge easier to find. With verified transit data and local partners, the next version can help the whole network respond in real time.</p><a href="#plan" class="future-cta">Start with a journey <span>↗</span></a></div><div class="future-list"><div class="future-item"><span>01</span><div><h3>Live arrivals</h3><p>Connect official GPS feeds to show reliable bus ETAs.</p></div><span class="future-status">DATA PARTNERSHIP</span></div><div class="future-item"><span>02</span><div><h3>Tamil + voice guidance</h3><p>Make trip planning natural in the language you use every day.</p></div><span class="future-status">ACCESSIBILITY</span></div><div class="future-item"><span>03</span><div><h3>Better transfers</h3><p>Plan across buses, rail, walking and accessible connections.</p></div><span class="future-status">NETWORK VIEW</span></div><div class="future-item"><span>04</span><div><h3>Community updates</h3><p>Give riders and operators a trusted way to flag changes.</p></div><span class="future-status">SHARED STEWARDSHIP</span></div></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-main"><a class="brand footer-brand" href="#home"><span class="brand-mark"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M6 25.5 16.9 7l4.3 7.3L25 7l8 18.5H6Z"/><path d="M10.5 25.5c2.1-4 4.3-6 7.2-6 3.9 0 4.6 4.1 8.4 4.1 1.5 0 2.7-.5 4-1.6"/></svg></span><span>KOVAI<span class="brand-light">CONNECT</span></span></a><p>For every person, every stop,<br/>and every next destination.</p><a href="#home" class="back-top">BACK TO TOP ↑</a></div><div class="wrap footer-bottom"><span>COIMBATORE, TAMIL NADU · BUILT WITH CARE</span><span>ROUTES FROM YOUR PDF · TIMINGS NOT PROVIDED</span></div></footer>
+
+  <dialog id="adminDialog" class="admin-dialog"><div class="admin-shell"><div class="admin-header"><div><span class="section-kicker">KOVAI CONNECT / DATA DESK</span><h2>Keep the city connected.</h2></div><button id="adminClose" class="close-btn" aria-label="Close">×</button></div><div class="admin-info"><span>●</span><p>Your changes are saved to the local route database. Add timings only when you have verified information.</p></div><form id="addRouteForm" class="admin-form"><h3>Add a route</h3><div class="admin-fields"><label>Route number<input name="number" required placeholder="e.g. 42A" /></label><label>Route type<input name="category" placeholder="e.g. City connector" /></label><label>From<input name="from" required placeholder="Starting stop" /></label><label>To<input name="to" required placeholder="Destination" /></label><label>Stops in order<input name="stops" required placeholder="Start, stop, destination" /></label><div class="admin-two"><label>First service<input name="first" type="time" /></label><label>Last service<input name="last" type="time" /></label></div><div class="admin-two"><label>Frequency · minutes<input name="frequency" type="number" min="5" placeholder="Not provided" /></label><label>Journey · minutes<input name="duration" type="number" min="5" placeholder="Not provided" /></label></div></div><button class="find-btn admin-submit" type="submit"><span>Save route</span><span class="btn-arrow">↗</span></button></form><div class="admin-routes-head"><h3>Routes in your database <span id="routeCount"></span></h3><span class="tiny-note">DELETE TO REMOVE</span></div><div id="adminRoutes" class="admin-routes"></div></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./routes-data.js" defer></script>
+  <script src="./maps-config.js" defer></script>
+  <script src="./planner.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
